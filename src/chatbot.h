@@ -32,6 +32,7 @@ public:
 
     ChatBot(const ChatBot &source);             // Copy Constructor for the Rule of Five
     ChatBot &operator=(const ChatBot &source);  // Copy Assignment Operator for the Rule of Five
+    
     ChatBot(ChatBot &&source);                  // Move Constructor for the Rule of Five
     ChatBot &operator=(ChatBot &&source);       // Move Assignment Operator for the Rule of Five
 

@@ -45,6 +45,48 @@ ChatBot::~ChatBot()
 //// STUDENT CODE
 ////
 
+// ChatBot Copy Constructor for the Rule of Five
+ChatBot::ChatBot(const ChatBot &source)
+{
+    std::cout << "ChatBot Copy Constructor" << std::endl;
+    _image = new wxBitmap();
+    *_image = *source._image;
+}
+
+// ChatBot Copy Assignment Operator for the Rule of Five
+ChatBot &ChatBot::operator=(const ChatBot &source)
+{
+    std::cout << "ChatBot Copy Assignment Operator" << std::endl;
+    if(this == &source)
+        return *this;
+    
+    delete _image;
+    _image = new wxBitmap();
+    *_image = *source._image;
+    return *this;
+}
+
+// ChatBot Move Constructor for the Rule of Five
+ChatBot::ChatBot(ChatBot &&source)
+{
+    std::cout << "ChatBot Move Constructor" << std::endl;
+    _image = source._image;
+    source._image = NULL;
+}
+
+// ChatBot Move Assignment Operator for the Rule of Five
+ChatBot &ChatBot::operator=(ChatBot &&source)
+{
+    std::cout << "ChatBot Move Assignment Operator" << std::endl;
+    if(this == &source)
+        return *this;
+    
+    delete _image;
+    _image = source._image;
+    source._image = NULL;
+    return *this;
+}
+
 ////
 //// EOF STUDENT CODE
 

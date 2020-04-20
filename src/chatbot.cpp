@@ -51,9 +51,9 @@ ChatBot::ChatBot(const ChatBot &source)
     std::cout << "ChatBot Copy Constructor" << std::endl;
     _image = new wxBitmap();
     *_image = *source._image;
-    *_currentNode = *source._currentNode;
-    *_rootNode = *source._rootNode;
-    *_chatLogic = *source._chatLogic;
+    _currentNode = source._currentNode;
+    _rootNode = source._rootNode;
+    _chatLogic = source._chatLogic;
 }
 
 // ChatBot Copy Assignment Operator for the Rule of Five
@@ -66,9 +66,9 @@ ChatBot &ChatBot::operator=(const ChatBot &source)
     delete _image;
     _image = new wxBitmap();
     *_image = *source._image;
-    *_currentNode = *source._currentNode;
-    *_rootNode = *source._rootNode;
-    *_chatLogic = *source._chatLogic;
+    _currentNode = source._currentNode;
+    _rootNode = source._rootNode;
+    _chatLogic = source._chatLogic;
 
     return *this;
 }

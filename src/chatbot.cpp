@@ -49,11 +49,15 @@ ChatBot::~ChatBot()
 ChatBot::ChatBot(const ChatBot &source)
 {
     std::cout << "ChatBot Copy Constructor" << std::endl;
-    _image = new wxBitmap();
-    *_image = *source._image;
-    _currentNode = source._currentNode;
-    _rootNode = source._rootNode;
+    // // _image = new wxBitmap();
+    // // *_image = *source._image;
+    _image = new wxBitmap(*source._image);
+    // // _currentNode = source._currentNode;
+    // // _rootNode = source._rootNode;
+    // // _chatLogic = source._chatLogic;
     _chatLogic = source._chatLogic;
+    _rootNode = source._rootNode;
+    _currentNode = source._currentNode;
 }
 
 // ChatBot Copy Assignment Operator for the Rule of Five
@@ -64,11 +68,15 @@ ChatBot &ChatBot::operator=(const ChatBot &source)
         return *this;
     
     delete _image;
-    _image = new wxBitmap();
-    *_image = *source._image;
-    _currentNode = source._currentNode;
-    _rootNode = source._rootNode;
+    // _image = new wxBitmap();
+    // *_image = *source._image;
+    _image = new wxBitmap(*source._image);
+    // // _currentNode = source._currentNode;
+    // // _rootNode = source._rootNode;
+    // // _chatLogic = source._chatLogic;
     _chatLogic = source._chatLogic;
+    _rootNode = source._rootNode;
+    _currentNode = source._currentNode;
 
     return *this;
 }
@@ -78,9 +86,12 @@ ChatBot::ChatBot(ChatBot &&source)
 {
     std::cout << "ChatBot Move Constructor" << std::endl;
     _image = source._image;
-    _currentNode = source._currentNode;
-    _rootNode = source._rootNode;
+    // // _currentNode = source._currentNode;
+    // // _rootNode = source._rootNode;
+    // // _chatLogic = source._chatLogic;
     _chatLogic = source._chatLogic;
+    _rootNode = source._rootNode;
+    _currentNode = source._currentNode;
 
     source._image = NULL;
     source._currentNode = nullptr;
@@ -97,9 +108,12 @@ ChatBot &ChatBot::operator=(ChatBot &&source)
     
     delete _image;
     _image = source._image;
-    _currentNode = source._currentNode;
-    _rootNode = source._rootNode;
+    // // _currentNode = source._currentNode;
+    // // _rootNode = source._rootNode;
+    // // _chatLogic = source._chatLogic;
     _chatLogic = source._chatLogic;
+    _rootNode = source._rootNode;
+    _currentNode = source._currentNode;
 
     source._image = NULL;
     source._currentNode = nullptr;

@@ -233,8 +233,8 @@ void ChatLogic::LoadAnswerGraphFromFile(std::string filename)
     //// rootNode->MoveChatbotHere(_chatBot);
 
     ChatBot localChatBot("../images/chatbot.png");;
-    //localChatBot.SetChatLogicHandle(this);
-    SetChatbotHandle(&localChatBot);
+    localChatBot.SetChatLogicHandle(this);
+    // SetChatbotHandle(&localChatBot);
     localChatBot.SetRootNode(rootNode);
     rootNode->MoveChatbotHere(std::move(localChatBot));
 
